@@ -5,43 +5,43 @@ import java.util.ArrayList;
 // then press Enter. You can now see whitespace characters in your code.
 public class Main {
     public static void main(String[] args) {
-        Product prod1 = new Product("car insurance", "Crash");
-        Product prod2 = new Product("life insurance", "SafeSide");
-        Commercial comm1 = new Commercial("insurance", 1);
-        comm1.setProduct(prod1);
-       // Product prod = new Product("Perfume", "Armani");
-      //  comm1.setProduct(prod);
-        displayCompanyIfCommercialIsCool(comm1);
-        Commercial comm2 = new Commercial("insurance", 1);
-        comm2.setProduct(prod2);
-        System.out.print(" " + comm2.equals(comm1));
+        try {
+            Product prod1 = new Product("car insurance", "Crash");
+            Product prod2 = new Product("life insurance", "SafeSide");
+            Commercial comm1 = new Commercial("insurance", 1);
+            comm1.setProduct(prod1);
+            // Product prod = new Product("Perfume", "Armani");
+            //  comm1.setProduct(prod);
+            displayCompanyIfCommercialIsCool(comm1);
+            Commercial comm2 = new Commercial("insurance", 1);
+            comm2.setProduct(prod2);
+            System.out.print(" " + comm2.equals(comm1));
 
-        //Polymorphism
-        ContentItem item1 = new Podcast("OOMP", 45, "Maya", "Programming");
-        ContentItem item2 = new Song("Lost in space", 3.45, "Tuna");
-        System.out.println("this is a cool content item? " + item1.isCool());
-        System.out.println("this is a cool content item? " + item2.isCool());
+            //Polymorphism
+            ContentItem item1 = new Podcast("OOMP", 45, "Maya", "Programming");
+            ContentItem item2 = new Song("Lost in space", 3.45, "Tuna");
+            System.out.println("this is a cool content item? " + item1.isCool());
+            System.out.println("this is a cool content item? " + item2.isCool());
 
-        Podcast podcast = new Podcast("polymorphism", 60, "Maya", "Programming");
-        Song song = new Song("Patience", 4.52, "Tame Impala");
-        Commercial commercial = new Commercial("Love OOP", 0.3);
-        ArrayList<PlayItem> playList = new ArrayList<>();
-        playList.add(podcast);
-        playList.add(song);
-        playList.add(commercial);
-        for (PlayItem item:playList)
-        {
-            System.out.println(item.getClass() + " " + item.getName() + ": " + (item.isCool()? "is cool": "is not cool"));
-            if( item instanceof LyricsHandler)
-                ((LyricsHandler)item).display("ooooo");
-        }
+            Podcast podcast = new Podcast("polymorphism", 60, "Maya", "Programming");
+            Song song = new Song("Patience", 4.52, "Tame Impala");
+            Commercial commercial = new Commercial("Love OOP", 0.3);
+            ArrayList<PlayItem> playList = new ArrayList<>();
+            playList.add(podcast);
+            playList.add(song);
+            playList.add(commercial);
+            for (PlayItem item : playList) {
+                System.out.println(item.getClass() + " " + item.getName() + ": " + (item.isCool() ? "is cool" : "is not cool"));
+                if (item instanceof LyricsHandler)
+                    ((LyricsHandler) item).display("ooooo");
+            }
 
-        //it was a Commercial, I swear.
-        PlayItem thirdItemInPlayList = playList.get(1);
-        if( thirdItemInPlayList.getClass().equals(Commercial.class)) {
-            Product prod = ((Commercial) thirdItemInPlayList).getProduct();
-        }
-        //interface
+            //it was a Commercial, I swear.
+            PlayItem thirdItemInPlayList = playList.get(1);
+            if (thirdItemInPlayList.getClass().equals(Commercial.class)) {
+                Product prod = ((Commercial) thirdItemInPlayList).getProduct();
+            }
+            //interface
 
        /* commercial.display("Code a mess? OOP's your mop! Clean, reusable, bugs won't plop!");
         song.display(null);
@@ -50,12 +50,27 @@ public class Main {
                 "Classes rule, methods too,\n" +
                 "Inheritance's a dream come true!\n");*/
 
-        //Polymorphism with interface
-        ArrayList<LyricsHandler> al = new ArrayList<>();
-        al.add(commercial);
-        al.add(song);
-        displayAll(al);
+            //Polymorphism with interface
+            ArrayList<LyricsHandler> al = new ArrayList<>();
+            al.add(commercial);
+            al.add(song);
+            displayAll(al);
 
+            //text exceptions
+            //Commercial comm3 = new Commercial("Try This", 5);
+            //Song song3 = new Song("Catch me if you can", 0.5, "Maya");
+            //Podcast podcast1 = new Podcast("try to catch it, its exceptional", 65, "Maya", "coding");
+
+        }
+        catch (IllegalLength e)
+        {
+            System.out.println(e.getMessage());
+        }
+        finally {
+            System.out.println("THE END");
+        }
+        //it is not possible to create objects from an interface
+        //this line will not compile
         //VideoClipper videoClipper = new VideoClipper();
 
         }

@@ -4,7 +4,7 @@ public abstract class ContentItem extends PlayItem{
     boolean isFunny;
     boolean isMadeMeThink;
 
-    public ContentItem(String name, double length, String performer)
+    public ContentItem(String name, double length, String performer) throws IllegalLength
     {
         super(name, length);
         this.performer = performer;

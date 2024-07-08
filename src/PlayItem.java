@@ -3,8 +3,7 @@ import java.util.Collection;
 public abstract class PlayItem {
     String name;
     double length;
-    double maxLength;
-    double minLength;
+
     public abstract double calcRating();
 
     public boolean isCool()
@@ -17,11 +16,19 @@ public abstract class PlayItem {
         setLength(length);
     }
 
+    public abstract double getMinLength();
+
+    public abstract double getMaxLength();
+
     public double getLength() {
         return length;
     }
 
     public void setLength(double length) throws IllegalLength{
+        if( length<getMinLength() || length>getMaxLength())
+        {
+            throw new IllegalLength("Length is out of range for " + this.getClass() + " The valid range is: " + getMinLength() + " - " + getMaxLength());
+        }
         this.length = length;
     }
 

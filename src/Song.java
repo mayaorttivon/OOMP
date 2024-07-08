@@ -1,8 +1,10 @@
 public class Song extends ContentItem implements LyricsHandler, VideoClipper {
 
     String originalPerformer;
+    public static final double MAX_SONG_LENGTH = 10;
+    public static final double MIN_SONG_LENGTH = 1;
 
-    public Song(String name, double length, String performer)
+    public Song(String name, double length, String performer) throws IllegalLength
     {
         super( name, length, performer);
         this.originalPerformer = performer;
@@ -24,5 +26,15 @@ public class Song extends ContentItem implements LyricsHandler, VideoClipper {
     @Override
     public double calcRating() {
         return 0;
+    }
+
+    @Override
+    public double getMinLength() {
+        return MIN_SONG_LENGTH;
+    }
+
+    @Override
+    public double getMaxLength() {
+        return MAX_SONG_LENGTH;
     }
 }

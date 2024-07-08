@@ -1,14 +1,27 @@
 import java.util.Scanner;
 
-public class Commercial extends PlayItem implements LyricsHandler {
+public class Commercial extends PlayItem implements LyricsHandler{
 
     private final String COOL_PRODUCT = "perfume";
+    public static final double MAX_COMMERCIAL_LENGTH = 1.5;
+    public static final double MIN_COMMERCIAL_LENGTH = 0.1;
+
 
     Product product;
 
-    public Commercial(String name, double length) {
+    public Commercial(String name, double length) throws IllegalLength{
         super(name, length);
-        product = null;
+        this.product = null;
+    }
+
+    @Override
+    public double getMinLength() {
+        return MIN_COMMERCIAL_LENGTH;
+    }
+
+    @Override
+    public double getMaxLength() {
+        return MAX_COMMERCIAL_LENGTH;
     }
 
     @Override
