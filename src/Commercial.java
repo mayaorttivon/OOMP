@@ -9,9 +9,16 @@ public class Commercial extends PlayItem implements LyricsHandler{
 
     Product product;
 
+    private static int commCount=0;
+
+    public static int getCommCount() {
+        return commCount;
+    }
+
     public Commercial(String name, double length) throws IllegalLength{
         super(name, length);
         this.product = null;
+        commCount++;
     }
 
     @Override

@@ -10,6 +10,7 @@ public class Main {
         Podcast podcast = null;
         Song song = null;
         Commercial commercial = null;
+        System.out.println("Number of commercials: " + Commercial.getCommCount());
         try {
             Product prod1 = new Product("car insurance", "Crash");
             Product prod2 = new Product("life insurance", "SafeSide");
@@ -21,6 +22,7 @@ public class Main {
             Commercial comm2 = new Commercial("insurance", 1);
             comm2.setProduct(prod2);
             System.out.print(" " + comm2.equals(comm1));
+            System.out.println("Number of commercials: " + Commercial.getCommCount());
 
             //Polymorphism
             ContentItem item1 = new Podcast("OOMP", 45, "Maya", "Programming");
@@ -31,6 +33,7 @@ public class Main {
             podcast = new Podcast("polymorphism", 60, "Maya", "Programming");
             song = new Song("Patience", 4.52, "Tame Impala");
             commercial = new Commercial("Love OOP", 0.3);
+            System.out.println("Number of commercials: " + Commercial.getCommCount());
             ArrayList<PlayItem> playList = new ArrayList<>();
             playList.add(podcast);
             playList.add(song);
