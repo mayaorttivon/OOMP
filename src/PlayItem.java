@@ -11,6 +11,7 @@ public abstract class PlayItem {
         return name.toLowerCase().startsWith("x");
     }
 
+
     public PlayItem(String name, double length) throws IllegalLength{
         this.name = name;
         setLength(length);

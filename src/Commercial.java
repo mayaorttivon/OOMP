@@ -55,12 +55,16 @@ public class Commercial extends PlayItem implements LyricsHandler{
     }
 
     @Override
-    public void display(String text) {
+    public void display(String text) throws IllegalLength{
 
-        while (text.length()>100 )
+     /*   while (text.length()>100 )
         {
             System.out.println("Commercials should be short! please enter a valid text: ");
             text = new Scanner(System.in).nextLine();
+        }*/
+        if( text.length()>4 )
+        {
+            throw new IllegalLength("Commercials should be short! max text length is 100 characters");
         }
         System.out.println(text);
     }
