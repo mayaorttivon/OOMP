@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Commercial extends PlayItem implements LyricsHandler{
+public class Commercial extends PlayItem implements LyricsHandler {
 
     private final String COOL_PRODUCT = "perfume";
     public static final double MAX_COMMERCIAL_LENGTH = 1.5;
@@ -9,13 +9,13 @@ public class Commercial extends PlayItem implements LyricsHandler{
 
     Product product;
 
-    private static int commCount=0;
+    private static int commCount = 0;
 
     public static int getCommCount() {
         return commCount;
     }
 
-    public Commercial(String name, double length) throws IllegalLength{
+    public Commercial(String name, double length) throws IllegalLength {
         super(name, length);
         this.product = null;
         commCount++;
@@ -37,13 +37,11 @@ public class Commercial extends PlayItem implements LyricsHandler{
     }
 
     /**
-     *
      * @return true if the product name equals to a COOL_PRODUCT
      */
     @Override
-    public boolean isCool()
-    {
-        if( product == null )
+    public boolean isCool() {
+        if (product == null)
             return false;
         return product.getName().toLowerCase().equals(COOL_PRODUCT);
     }
@@ -58,21 +56,21 @@ public class Commercial extends PlayItem implements LyricsHandler{
 
     @Override
     public boolean equals(Object obj) {
-        return super.equals(obj) && ((Commercial)obj).getProduct().equals(product);
+        return super.equals(obj) && ((Commercial) obj).getProduct().equals(product);
     }
 
     @Override
-    public void display(String text) throws IllegalLength{
+    public void display(String text) throws IllegalLength {
 
      /*   while (text.length()>100 )
         {
             System.out.println("Commercials should be short! please enter a valid text: ");
             text = new Scanner(System.in).nextLine();
         }*/
-        if( text.length()>4 )
-        {
+        if (text.length() > 4) {
             throw new IllegalLength("Commercials should be short! max text length is 100 characters");
         }
         System.out.println(text);
     }
+
 }

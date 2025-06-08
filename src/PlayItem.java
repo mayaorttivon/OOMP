@@ -1,6 +1,6 @@
 import java.util.Collection;
 
-public abstract class PlayItem {
+public abstract class PlayItem {//implements Comparable{
     String name;
     double length;
 
@@ -28,7 +28,7 @@ public abstract class PlayItem {
     public void setLength(double length) throws IllegalLength{
         if( length<getMinLength() || length>getMaxLength())
         {
-            throw new IllegalLength("Length is out of range for " + this.getClass() + " The valid range is: " + getMinLength() + " - " + getMaxLength());
+            throw new IllegalLength(getClass().getName(), getMinLength(), getMaxLength());
         }
         this.length = length;
     }
@@ -45,4 +45,16 @@ public abstract class PlayItem {
     public boolean equals(Object obj) {
         return ((PlayItem)obj).getName().equals(name) && ((PlayItem)obj).getLength()==length;
     }
+
+    @Override
+    public String toString() {
+        return name;
+    }
+    /*@Override
+    public int compareTo(Object o) {
+        if( this.length==((PlayItem)o).getLength() )
+            return 0;
+        return this.length>((PlayItem)o).getLength()? 1:-1;
+    }*/
+
 }

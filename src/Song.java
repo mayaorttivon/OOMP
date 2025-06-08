@@ -37,4 +37,6 @@ public class Song extends ContentItem implements LyricsHandler, VideoClipper {
     public double getMaxLength() {
         return MAX_SONG_LENGTH;
     }
+
+
 }

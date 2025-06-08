@@ -7,11 +7,25 @@ import java.util.Scanner;
 // then press Enter. You can now see whitespace characters in your code.
 public class Main {
     public static void main(String[] args) {
+        /*Comparable
+        PlayList pl = new PlayList();
+        System.out.println(pl.getTags());
+        System.out.println(pl.sortTags());*/
         Podcast podcast = null;
         Song song = null;
         Commercial commercial = null;
+
         System.out.println("Number of commercials: " + Commercial.getCommCount());
         try {
+            /*Comparable
+            podcast = new Podcast("polymorphism", 60, "Maya", "Programming");
+            song = new Song("Patience", 4.52, "Tame Impala");
+            commercial = new Commercial("Love OOP", 0.3);
+            pl.getItems().add(song);
+            pl.getItems().add(commercial);
+            pl.getItems().add(podcast);
+            System.out.println(pl.getItems());
+            System.out.println(pl.sortItems());*/
             Product prod1 = new Product("car insurance", "Crash");
             Product prod2 = new Product("life insurance", "SafeSide");
             Commercial comm1 = new Commercial("insurance", 1);

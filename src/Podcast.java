@@ -27,4 +27,5 @@ public class Podcast extends ContentItem{
     public double getMaxLength() {
         return MAX_PODCAST_LENGTH;
     }
+
 }
