@@ -3,7 +3,7 @@ public class Podcast extends ContentItem{
     public static final double MAX_PODCAST_LENGTH = 60;
     public static final double MIN_PODCAST_LENGTH = 30;
 
-    public Podcast(String name, double length, String performer, String category) throws IllegalLength{
+    public Podcast(String name, double length, String performer, String category)  throws IllegalLength{
         super(name, length, performer);
         this.category = category;
     }
