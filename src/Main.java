@@ -103,20 +103,19 @@ public class Main {
             text = "When you're coding late at night,\n" +
                     "            And your brain's in a twisty fight,\n" +
                     "            Just remember OOP's the way,\n" +
-                    "            To make your code shine bright as day!";
 
-            while(!validText) {
+                    "            To make your code shine bright as day!";
+            validText = false;
+            while (!validText)
+            {
                 try {
                     item.display(text);
-                    validText=true;
+                    validText = true;
                 } catch (IllegalLength e) {
                     System.out.println(e.getMessage());
                     System.out.println("enter new text: ");
-                    text=new Scanner(System.in).nextLine();
-                    validText=false;
+                    text = new Scanner(System.in).nextLine();
                 }
-
-
             }
         }
     }
