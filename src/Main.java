@@ -1,12 +1,18 @@
 import java.awt.*;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.rmi.StubNotFoundException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Scanner;
 
 // Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
 // then press Enter. You can now see whitespace characters in your code.
 public class Main {
     public static void main(String[] args) {
+        Func.findVirus();
         /*Comparable
         PlayList pl = new PlayList();
         System.out.println(pl.getTags());
@@ -17,15 +23,37 @@ public class Main {
 
         System.out.println("Number of commercials: " + Commercial.getCommCount());
         try {
-            /*Comparable
+           PlayList pl = new PlayList();
             podcast = new Podcast("polymorphism", 60, "Maya", "Programming");
             song = new Song("Patience", 4.52, "Tame Impala");
             commercial = new Commercial("Love OOP", 0.3);
+            //Example of csv file
+            FileReader fr = new FileReader(new File("D:\\csvinput.csv"));
+            Scanner sc = new Scanner(fr);
+            //print without commas
+            String[] values = sc.nextLine().split(",");
+            for(int i=0;i< values.length;i++)
+            {
+                System.out.print(values[i]);
+            }
+            //print with commas
+            while (sc.hasNext())
+                System.out.print(sc.next());
+            //Example of txt file
+            podcast.setText(new File("D:\\podcast.txt" ));
+            if (podcast.hasReferenceToLove())
+                System.out.println("love podcast");
+            else
+                System.out.println("not a love podcast");
             pl.getItems().add(song);
             pl.getItems().add(commercial);
             pl.getItems().add(podcast);
             System.out.println(pl.getItems());
+             /*Comparable
             System.out.println(pl.sortItems());*/
+            /*Comparator
+            Collections.sort(pl.getItems(), new CommercialComparator());
+            System.out.println(pl.getItems());*/
             Product prod1 = new Product("car insurance", "Crash");
             Product prod2 = new Product("life insurance", "SafeSide");
             Commercial comm1 = new Commercial("insurance", 1);
@@ -81,7 +109,7 @@ public class Main {
             //Song song3 = new Song("Catch me if you can", 0.5, "Maya");
             //Podcast podcast1 = new Podcast("try to catch it, its exceptional", 65, "Maya", "coding");
 
-        } catch (IllegalLength e) {
+        } catch (Exception e) {
             System.out.println(e.getMessage());
         } finally {
             System.out.println("THE END");
