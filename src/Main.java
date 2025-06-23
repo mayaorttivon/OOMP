@@ -1,8 +1,5 @@
 import java.awt.*;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.rmi.StubNotFoundException;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -40,11 +37,7 @@ public class Main {
             while (sc.hasNext())
                 System.out.print(sc.next());
             //Example of txt file
-            podcast.setText(new File("D:\\podcast.txt" ));
-            if (podcast.hasReferenceToLove())
-                System.out.println("love podcast");
-            else
-                System.out.println("not a love podcast");
+            checkLovePodcast(podcast);
             pl.getItems().add(song);
             pl.getItems().add(commercial);
             pl.getItems().add(podcast);
@@ -159,6 +152,28 @@ public class Main {
                     text = new Scanner(System.in).nextLine();
                 }
             }
+        }
+    }
+    public static void checkLovePodcast(Podcast podcast)
+    {
+        try {
+            File file = new File("D:\\podcast.txt");
+            /*FileWriter fw = new FileWriter(file);
+            fw.write("love");
+            fw.close();*/
+            podcast.setText(file);
+            if (podcast.hasReferenceToLove())
+                System.out.println("love podcast");
+            else
+                System.out.println("not a love podcast");
+        }
+        catch(FileNotFoundException e)
+        {
+            System.out.print(e.getMessage());
+        }
+        catch (IOException ioe)
+        {
+
         }
     }
 }

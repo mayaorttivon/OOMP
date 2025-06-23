@@ -1,4 +1,5 @@
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Scanner;
@@ -39,9 +40,8 @@ public class Podcast extends ContentItem{
         return MAX_PODCAST_LENGTH;
     }
 
-    public boolean hasReferenceToLove()
+    public boolean hasReferenceToLove() throws FileNotFoundException, IOException
     {
-        try {
             FileReader fr = new FileReader(text);
             Scanner sc = new Scanner(fr);
             while(sc.hasNext())
@@ -54,10 +54,6 @@ public class Podcast extends ContentItem{
             }
             fr.close();
             return false;
-        }
-        catch (IOException ioe)
-        {
-            return false;
-        }
+
     }
 }
